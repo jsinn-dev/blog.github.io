@@ -1,1 +1,29 @@
-<h1>Welcome to my blog !</h1>
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script>
+$(document).ready(function() {
+    // get the width and height of the window
+    var width = $(window).width();
+    var height = $(window).height();
+
+    var left = 200+Math.floor(Math.random() * (0.6*width));
+    var top = 200+Math.floor(Math.random() * (0.3*height));
+	$("<a href='hw.html'><img src='res/index/hw.png'/></a>").appendTo("body").css({
+		position : "absolute",
+		left: left,
+		top: top
+	});
+    left = 200+Math.floor(Math.random() * (0.6*width));
+    top = top+100+Math.floor(Math.random() * (0.3*height));
+	$("<a href='sw.html'><img src='res/index/sw.png'/></a>").appendTo("body").css({
+		position : "absolute",
+		left: left,
+		top: top
+	});
+});
+	</script>
+</head>
+<body>
+</body>
+</html>
