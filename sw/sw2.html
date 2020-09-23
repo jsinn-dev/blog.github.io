@@ -1,7 +1,6 @@
-<head>
+ï»¿<head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<meta charset="UTF-8">
 <title>Article</title>
 </head>
 <body>
@@ -11,42 +10,42 @@
 <h1 class="display-4">Extension Chrome pour la suppression de messages Facebook</h1><br>
 <div style="margin-left:50px; margin-right:200px">
 <h3>Un peu de contexte...</h3><br>
-<p>Facebook, c'est <b>2.2 milliards d'utilisateurs actifs</b> et plus de <b>4 000 000 de gigaoctets de données récoltées chaque jour</b>.</p>
-<p>Pour permettre aux internautes de maîtriser les données qu'ils partagent, le <b>Réglement Général sur la Protection des Données (RGPD)</b>
-est entré en vigueur le <b>25 Mai 2018</b>.
-Facebook, dont la source de revenus dépend quasi-exclusivement de l'exploitation de ces données, ne met pas en oeuvre la totalité
-des changements nécessaires pour garantir la protection des données et en <b>Juillet 2019 écope d'une amende de 5 milliards de dollars</b> pour avoir trompé
-ses utilisateurs sur leur réel pouvoir de contrôle.
-Ce n'est que très récemment, en <b>Septembre 2020</b>, que la multinationale a ajouté une fonctionnalité qui permet aux utilisateurs
-de <b>supprimer manuellement mais définitivement les messages personnels</b> envoyés via l'application Messenger, là où on ne pouvait d'habitude que supprimer les messages envoyés
+<p>Facebook, c'est <b>2.2 milliards d'utilisateurs actifs</b> et plus de <b>4 000 000 de gigaoctets de donnÃ©es rÃ©coltÃ©es chaque jour</b>.</p>
+<p>Pour permettre aux internautes de maÃ®triser les donnÃ©es qu'ils partagent, le <b>RÃ©glement GÃ©nÃ©ral sur la Protection des DonnÃ©es (RGPD)</b>
+est entrÃ© en vigueur le <b>25 Mai 2018</b>.
+Facebook, dont la source de revenus dÃ©pend quasi-exclusivement de l'exploitation de ces donnÃ©es, ne met pas en oeuvre la totalitÃ©
+des changements nÃ©cessaires pour garantir la protection des donnÃ©es et en <b>Juillet 2019 Ã©cope d'une amende de 5 milliards de dollars</b> pour avoir trompÃ©
+ses utilisateurs sur leur rÃ©el pouvoir de contrÃ´le.
+Ce n'est que trÃ¨s rÃ©cemment, en <b>Septembre 2020</b>, que la multinationale a ajoutÃ© une fonctionnalitÃ© qui permet aux utilisateurs
+de <b>supprimer manuellement mais dÃ©finitivement les messages personnels</b> envoyÃ©s via l'application Messenger, lÃ  oÃ¹ on ne pouvait d'habitude que supprimer les messages envoyÃ©s
 dans les 10 minutes.
 </p>
 <p>
-Toutefois, l'engagement de la firme est à prendre avec des pincettes car il est <b>toujours impossible de supprimer automatiquement
-tous les messages envoyés</b> (malin !). J'en viens donc à mon projet qui a été de <b class="text-danger">développer un programme qui automatise la suppression des messages Facebook</b>.
+Toutefois, l'engagement de la firme est Ã  prendre avec des pincettes car il est <b>toujours impossible de supprimer automatiquement
+tous les messages envoyÃ©s</b> (malin !). J'en viens donc Ã  mon projet qui a Ã©tÃ© de <b class="text-danger">dÃ©velopper un programme qui automatise la suppression des messages Facebook</b>.
 </p>
 
-<br><h3>Et s'il existait une limite au nombre de messages enregistrés ?</h3><br>
-<p>La première piste explorée a été d'<b>inonder une conversation</b> de messages jusqu'à atteindre une limite (à supposer qu'elle existe)
-à partir de laquelle les anciens messages seraient effacés. A ce moment, la fonctionnalité de suppression de messages
-n'était pas implémentée et cette idée me paraissait la plus prometteuse.</p>
+<br><h3>Et s'il existait une limite au nombre de messages enregistrÃ©s ?</h3><br>
+<p>La premiÃ¨re piste explorÃ©e a Ã©tÃ© d'<b>inonder une conversation</b> de messages jusqu'Ã  atteindre une limite (Ã  supposer qu'elle existe)
+Ã  partir de laquelle les anciens messages seraient effacÃ©s. A ce moment, la fonctionnalitÃ© de suppression de messages
+n'Ã©tait pas implÃ©mentÃ©e et cette idÃ©e me paraissait la plus prometteuse.</p>
 <p>Ma conversation qui compte le plus grand nombre de message a 3 ans et compte plus de <b>18 000 messages</b>. Donc il est peu
-probable que la limite du nombre de messages existe, mais qui sait où se situe cette limite ? Je réalise donc une petite
-<b>extension pour Google Chrome qui accède à la messagerie et innonde une conversation</b> et j'observe le résultat.
+probable que la limite du nombre de messages existe, mais qui sait oÃ¹ se situe cette limite ? Je rÃ©alise donc une petite
+<b>extension pour Google Chrome qui accÃ¨de Ã  la messagerie et innonde une conversation</b> et j'observe le rÃ©sultat.
 </p>
 <div class="clearfix">
 <img src="2/chrome.png" class="rounded float-left" alt="...">
 </div>
 
 <br><h3>Fonctionnement</h3><br>
-<p>D'abord, pourquoi une extension ? Pourquoi ne pas se servir de l'API grâcieusement mise à disposition par facebook ? Tout simplement car l'API ne permet pas d'envoyer des messages
-depuis le compte d'un utilisateur. Elle permet uniquement d'envoyer des messages depuis un chatbot vers un utilisateur. L'idée est donc ici de simuler une frappe sur le clavier, 
+<p>D'abord, pourquoi une extension ? Pourquoi ne pas se servir de l'API grÃ¢cieusement mise Ã  disposition par facebook ? Tout simplement car l'API ne permet pas d'envoyer des messages
+depuis le compte d'un utilisateur. Elle permet uniquement d'envoyer des messages depuis un chatbot vers un utilisateur. L'idÃ©e est donc ici de simuler une frappe sur le clavier, 
 ou plus simplement (et c'est la solution retenue) <b>simuler un clic sur le bouton j'aime</b>.</p>
 
 <p>L'extension chrome se compose des fichiers suivants :</p>
 <ul>
-<li><kbd>icon.png</kbd> : l'icone de l'application qui apparaîtra dans la barre d'extensions</li>
-<li><kbd>jquery.min.js</kbd> : librairie jQuery utilisée pour faciliter la programmation en javascript</li>
+<li><kbd>icon.png</kbd> : l'icone de l'application qui apparaÃ®tra dans la barre d'extensions</li>
+<li><kbd>jquery.min.js</kbd> : librairie jQuery utilisÃ©e pour faciliter la programmation en javascript</li>
 <li><kbd>manifest.json</kbd> : manifeste contenant les informations comme le nom de l'extension, la version, les permissions...</li>
 <li><kbd>myscript.js</kbd> : le code principal en javascript</li>
 </ul>
@@ -57,34 +56,34 @@ ou plus simplement (et c'est la solution retenue) <b>simuler un clic sur le bout
 <img src="2/filesystem.png" class="rounded float-left" alt="...">
 </div>
 
-<br><h3>Passons à l'action !</h3><br>
-<p>Une fois l'extension chargée, deux boutons apparaissent dans la messagerie : <b>Start</b> et <b>Stop</b>. Un appui sur Start ouvre une <b>boîte de dialogue</b> qui demande de renseigner le nombre
-de messages à envoyer.</p>
+<br><h3>Passons Ã  l'action !</h3><br>
+<p>Une fois l'extension chargÃ©e, deux boutons apparaissent dans la messagerie : <b>Start</b> et <b>Stop</b>. Un appui sur Start ouvre une <b>boÃ®te de dialogue</b> qui demande de renseigner le nombre
+de messages Ã  envoyer.</p>
 <div class="clearfix">
 <img src="2/fenetre1.png" class="rounded float-left" style="height : 300px" alt="...">
 <img src="2/fenetre2.png" class="rounded float-left" style="height : 285px" alt="...">
 </div><br>
-<p>Le programme envoie alors automatiquement 5 likes à notre interlocuteur comme inqué :</p>
+<p>Le programme envoie alors automatiquement 5 likes Ã  notre interlocuteur comme inquÃ© :</p>
 <img src="2/fenetre3.png" class="rounded" style="height:285px; display:block; margin-left:auto; margin-right:auto" alt="...">
 
 <br><h3>Et avec un peu plus de messages ?</h3><br>
-<p>Aux alentours d'une centaine de messages en quelques secondes, tout semble bien se passer... Jusqu'à ce qu'un avertissement apparaisse !</p>
-<p><b class="text-danger">La messagerie facebook dispose d'un filtre anti-spam. Donc même s'il existait une limite au nombre de messages enregistrés, il serait impossible de
+<p>Aux alentours d'une centaine de messages en quelques secondes, tout semble bien se passer... Jusqu'Ã  ce qu'un avertissement apparaisse !</p>
+<p><b class="text-danger">La messagerie facebook dispose d'un filtre anti-spam. Donc mÃªme s'il existait une limite au nombre de messages enregistrÃ©s, il serait impossible de
 l'atteindre en un temps raisonnable.</b></p>
 <img src="2/warning.png" class="rounded" style="display:block; margin-left:auto; margin-right:auto" alt="...">
 
-<br><h3>Deuxième tentative</h3><br>
-<p>Maintenant que facebook propose une <b>fonctionnalité permettant de supprimer ses messages</b>, l'idée est d'<b>utiliser l'API mise à disposition</b> pour automatiser le processus.
-Après plusieurs recherches, il s'avère que <b class="text-danger">l'API n'implémente pas la suppression de messages</b>, qui n'est disponible que manuellement via l'interface utilisateur !
+<br><h3>DeuxiÃ¨me tentative</h3><br>
+<p>Maintenant que facebook propose une <b>fonctionnalitÃ© permettant de supprimer ses messages</b>, l'idÃ©e est d'<b>utiliser l'API mise Ã  disposition</b> pour automatiser le processus.
+AprÃ¨s plusieurs recherches, il s'avÃ¨re que <b class="text-danger">l'API n'implÃ©mente pas la suppression de messages</b>, qui n'est disponible que manuellement via l'interface utilisateur !
 <p>
 <p>
-Une dernière piste serait de développer une extension qui simule le clic prolongé sur chaque message, puis un clic sur "retirer", 
-et ce pour tous les messages envoyés dans une conversation. Bien que cela soit faisable, le minuscule gain de temps n'en vaudrait pas la peine.
+Une derniÃ¨re piste serait de dÃ©velopper une extension qui simule le clic prolongÃ© sur chaque message, puis un clic sur "retirer", 
+et ce pour tous les messages envoyÃ©s dans une conversation. Bien que cela soit faisable, le minuscule gain de temps n'en vaudrait pas la peine.
 </p>
 
 <br><h3>Conclusion</h3><br>
-La suppression de l'historique des messages facebook restera impossible tant que la firme n'incluera pas dans son API la fonctionnalité de suppression de messages,
- chose qui n'arrivera pas de si tôt.
+La suppression de l'historique des messages facebook restera impossible tant que la firme n'incluera pas dans son API la fonctionnalitÃ© de suppression de messages,
+ chose qui n'arrivera pas de si tÃ´t.
 </div>
 <br><br><br><br><br>
 <!--https://kinsta.com/blog/facebook-statistics/-->
